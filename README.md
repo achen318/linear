@@ -1,6 +1,6 @@
 # linear
 
-For Mr. Honner's "Matries as Lists" assignment.
+For Mr. Honner's "Matrices as Lists" assignment.
 
 Anthony Chen, Linear Algebra, 9/22/23
 
