@@ -27,8 +27,8 @@ class Matrix:
 
         self.display()
 
-    def multiply(self, scalar: float, row: int) -> None:
-        print(f">>> MULTIPLY(scalar: {scalar}, row: {row}) <<<")
+    def mult(self, scalar: float, row: int) -> None:
+        print(f">>> MULT(scalar: {scalar}, row: {row}) <<<")
 
         for i in range(len(self.matrix[row-1])):
             self.matrix[row-1][i] *= scalar
@@ -47,9 +47,9 @@ class Matrix:
         print(tabulate(self.matrix) + "\n")
 
     # for each col, find nonzero, swap, zero out, go down row
-    def rref(self: List[List[int]]) -> None:
+    def rref(self) -> None:
         # First row pivot to 1
-        self.multiply(1/self.get(1, 1), 1)
+        self.mult(1/self.get(1, 1), 1)
 
         # Eliminate x
         self.add(1, 2)

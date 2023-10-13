@@ -7,15 +7,19 @@ class MatrixInterface:
         self.matrix.display()
 
     def get_input(self) -> None:
-        inp = input("Enter a row operation: SWAP, MULTIPLY, or ADD >>> "
-                    ).upper().strip()
+        inp = input("Enter an action: SWAP, MULT, ADD, RREF, EXIT >>> "
+                    ).lower().strip()
 
-        if (inp == "SWAP"):
+        if inp == "swap":
             self.ask_swap()
-        elif (inp == "MULTIPLY"):
-            self.ask_multiply()
-        elif (inp == "ADD"):
+        elif inp == "mult":
+            self.ask_mult()
+        elif inp == "add":
             self.ask_add()
+        elif inp == "rref":
+            self.matrix.rref()
+        elif inp == "exit":
+            return
         else:
             print("[X] Invalid input. Please try again!")
             self.get_input()
@@ -28,11 +32,11 @@ class MatrixInterface:
 
         self.get_input()
 
-    def ask_multiply(self) -> None:
+    def ask_mult(self) -> None:
         scalar = float(input("scalar >>> "))
         row = int(input("row >>> "))
 
-        self.matrix.multiply(scalar, row)
+        self.matrix.mult(scalar, row)
 
         self.get_input()
 
