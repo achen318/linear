@@ -46,7 +46,7 @@ class Matrix:
     def display(self) -> None:
         print(tabulate(self.matrix) + "\n")
 
-    # assuming 3x3 system, generalize later
+    # for each col, find nonzero, swap, zero out, go down row
     def rref(self: List[List[int]]) -> None:
         # First row pivot to 1
         self.multiply(1/self.get(1, 1), 1)

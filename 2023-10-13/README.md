@@ -4,11 +4,9 @@ Anthony Chen, Linear Algebra, 10/13/23
 
 ## Features
 
-- Initialize with matrix
-- Use 3 elementary row operators
-- Get, set values
-- Get row
-- Display matrix
+- Allow the usage of the three elementary row operations
+- Display the matrix
+- Perform row operations through user input
 
 ## WIP
 
