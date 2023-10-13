@@ -10,4 +10,4 @@ mat_inter = MatrixInterface(
     ])
 )
 
-mat_inter.get_input()
+mat_inter.run()
