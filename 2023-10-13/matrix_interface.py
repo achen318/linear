@@ -4,6 +4,7 @@ from matrix import Matrix
 class MatrixInterface:
     def __init__(self, matrix: Matrix):
         self.matrix = matrix
+        self.matrix.rref()
 
     def run(self) -> None:
         self.matrix.display()
