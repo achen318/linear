@@ -47,24 +47,28 @@ class Matrix:
     def display(self) -> None:
         print(tabulate(self.matrix) + "\n")
 
-    # for each col, find nonzero, swap, zero out, go down row
     def rref(self) -> None:
+        print(">>>>> RREF <<<<<")
+
         # For each column,
         for col in range(self.cols):
-            # go through the rows,
-            for row in range(self.rows):
-                pivot_offset = 0
+            pivot_row = -1
 
+            # go through the rows,
+            for row in range(col, self.rows):
                 # find the first row with a nonzero entry,
-                if not pivot_offset and self.matrix[row][col]:
+                if pivot_row == -1 and self.matrix[row][col]:
                     # and swap that row up.
-                    self.swap(col, row)
+                    if row != col:
+                        self.swap(col, row)
 
                     # This row contains the pivot, so make the pivot 1.
-                    pivot_offset = col
-                    self.mult(1/self.get(pivot_offset,
-                              pivot_offset), pivot_offset)
+                    pivot_row = row
+                    pivot = self.get(pivot_row, pivot_row)
+
+                    if pivot != 1:
+                        self.mult(1/pivot, pivot_row)
 
                 # Zero out the remaining rows.
-                elif pivot_offset:
-                    self.add(pivot_offset, row, -self.get(row, col))
+                elif pivot_row != -1:
+                    self.add(pivot_row, row, -self.get(row, col))
